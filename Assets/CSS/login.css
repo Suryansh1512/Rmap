@@ -317,6 +317,22 @@ body {
   text-decoration: underline;
 }
 
+.demo-notice {
+  display: grid;
+  gap: 6px;
+  margin: 0 0 18px;
+  padding: 13px 15px;
+  border: 1px solid #dfe6fb;
+  border-radius: 9px;
+  background: #f5f7ff;
+  color: #52617d;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.demo-notice strong { color: #26365b; font-size: 13px; }
+html[data-theme="dark"] .demo-notice { border-color: #34425a; background: #101a2a; color: #aab6ca; }
+html[data-theme="dark"] .demo-notice strong { color: #e8edf7; }
+
 /* Actions and footer */
 .submit {
   height: 49px;
