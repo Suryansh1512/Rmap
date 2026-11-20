@@ -1,0 +1,23 @@
+// Shared sample candidate records used by the Candidates and job-applicants pages.
+(() => {
+  const prefix='rmapCandidatesV1:';
+  const demoCandidates=[
+    {id:'CAN-1001',name:'Ava Thompson',email:'ava.thompson@example.com',location:'San Francisco, CA',experience:6,source:'Careers page',added:'Nov 17, 2026',stage:'New',archived:false,avatar:'avatar-indigo',skills:['Product design','Figma','Prototyping'],match:94,note:'Strong product design portfolio. Initial screen is pending.',activity:'Profile added from the careers page today.',applications:[{jobId:'RMAP-1042',title:'Senior Product Designer',stage:'New',applied:'Nov 17, 2026'}]},
+    {id:'CAN-1002',name:'Noah Williams',email:'noah.williams@example.com',location:'New York, NY',experience:5,source:'LinkedIn',added:'Nov 16, 2026',stage:'Screening',archived:false,avatar:'avatar-mint',skills:['React','TypeScript','Accessibility'],match:88,note:'Recruiter screen scheduled.',activity:'Moved to screening yesterday.',applications:[{jobId:'RMAP-1041',title:'Frontend Engineer',stage:'Screening',applied:'Nov 16, 2026'},{jobId:'RMAP-1036',title:'Backend Engineer',stage:'Prospect',applied:'Nov 11, 2026'}]},
+    {id:'CAN-1003',name:'Mia Chen',email:'mia.chen@example.com',location:'Toronto, Canada',experience:7,source:'Referral',added:'Nov 15, 2026',stage:'Interview',archived:false,avatar:'avatar-peach',skills:['Design systems','Research','Figma'],match:91,note:'Referred by Alex Morgan. Portfolio review completed.',activity:'Panel interview scheduled for Nov 19.',applications:[{jobId:'RMAP-1042',title:'Senior Product Designer',stage:'Interview',applied:'Nov 15, 2026'}]},
+    {id:'CAN-1004',name:'Ethan Brooks',email:'ethan.brooks@example.com',location:'Austin, TX',experience:8,source:'Careers page',added:'Nov 14, 2026',stage:'Offer',archived:false,avatar:'avatar-lilac',skills:['Brand strategy','Campaigns','Analytics'],match:85,note:'References are complete.',activity:'Offer sent on Nov 16.',applications:[{jobId:'RMAP-1039',title:'Marketing Manager',stage:'Offer',applied:'Nov 14, 2026'}]},
+    {id:'CAN-1005',name:'Priya Shah',email:'priya.shah@example.com',location:'San Jose, CA',experience:4,source:'Indeed',added:'Nov 13, 2026',stage:'Screening',archived:false,avatar:'avatar-sky',skills:['JavaScript','CSS','Testing'],match:82,note:'Good match for frontend role.',activity:'Recruiter screen completed Nov 16.',applications:[{jobId:'RMAP-1041',title:'Frontend Engineer',stage:'Screening',applied:'Nov 13, 2026'}]},
+    {id:'CAN-1006',name:'Jordan Lee',email:'jordan.lee@example.com',location:'Seattle, WA',experience:6,source:'Recruiter outreach',added:'Nov 12, 2026',stage:'Interview',archived:false,avatar:'avatar-rose',skills:['Product strategy','Prototyping','Figma'],match:89,note:'Portfolio review went well.',activity:'Interview feedback is due today.',applications:[{jobId:'RMAP-1042',title:'Senior Product Designer',stage:'Interview',applied:'Nov 12, 2026'}]},
+    {id:'CAN-1007',name:'Sofia Patel',email:'sofia.patel@example.com',location:'Boston, MA',experience:5,source:'LinkedIn',added:'Nov 10, 2026',stage:'New',archived:false,avatar:'avatar-gold',skills:['Content strategy','SEO','Writing'],match:80,note:'New applicant; profile review pending.',activity:'Application received Nov 10.',applications:[{jobId:'RMAP-1039',title:'Marketing Manager',stage:'New',applied:'Nov 10, 2026'}]},
+    {id:'CAN-1008',name:'Ryan Kim',email:'ryan.kim@example.com',location:'Remote · US',experience:9,source:'Referral',added:'Nov 08, 2026',stage:'Hired',archived:false,avatar:'avatar-teal',skills:['Node.js','Cloud systems','Databases'],match:96,note:'Accepted offer. Start date confirmed.',activity:'Marked hired Nov 16.',applications:[{jobId:'RMAP-1036',title:'Backend Engineer',stage:'Hired',applied:'Nov 08, 2026'}]}
+  ];
+  function key(workspace){return `${prefix}${workspace||'Acme Talent Group'}`;}
+  function load(workspace){
+    const storageKey=key(workspace);
+    try{const saved=localStorage.getItem(storageKey);if(saved!==null){const records=JSON.parse(saved);if(Array.isArray(records))return records;}}catch{}
+    const copy=demoCandidates.map((candidate)=>({...candidate,skills:[...candidate.skills],applications:candidate.applications.map((application)=>({...application}))}));
+    save(workspace,copy);return copy;
+  }
+  function save(workspace,records){try{localStorage.setItem(key(workspace),JSON.stringify(records));return true;}catch{return false;}}
+  window.RMAPCandidateStore={load,save};
+})();

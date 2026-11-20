@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Core document metadata and responsive viewport setup. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fc">
+  <meta name="description" content="RMAP recruitment management and analytics workspace dashboard.">
+  <title>Interviews | RMAP</title>
+  <!-- Application styles are kept inside the app folder. -->
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/rmap-background.css">
+  <link rel="stylesheet" href="css/interviews.css">
+  <link rel="stylesheet" href="css/readability.css">
+  <link rel="stylesheet" href="css/global-effects.css">
+</head>
+<body class="rmap-bg-host rmap-bg-dashboard">
+  <!-- The sidebar and workspace form the persistent application shell. -->
+  <div class="app-shell">
+    <!-- Main navigation: product identity, workspace, grouped pages, and account status. -->
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-top">
+        <a class="brand" href="index.html" aria-label="RMAP Dashboard">
+          <img src="../Assets/images/Futuristic%20RMAP%20Recruitment%20Analytics%20Logo-1.png" alt="">
+          <span class="brand-copy"><strong>RMAP</strong><small>Recruitment analytics</small></span>
+        </a>
+        <button class="icon-button sidebar-close" id="sidebar-close" type="button" aria-label="Close navigation">×</button>
+
+        <!-- Workspace picker opens the available workspace menu. -->
+        <div class="workspace-picker">
+          <button class="workspace-switch" id="workspace-toggle" type="button" aria-label="Switch workspace" aria-expanded="false" aria-controls="workspace-menu">
+            <span class="workspace-mark">A</span>
+            <span class="workspace-copy"><small>WORKSPACE</small><strong>Acme Talent Group</strong></span>
+            <span class="workspace-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="workspace-menu" id="workspace-menu" role="menu" aria-label="Choose workspace" hidden>
+            <div class="workspace-menu-heading">Switch workspace</div>
+            <button class="workspace-option selected" type="button" role="menuitemradio" aria-checked="true" data-workspace="Acme Talent Group" data-initial="A"><span class="workspace-option-mark">A</span><span class="workspace-option-copy"><strong>Acme Talent Group</strong><small>Current workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <button class="workspace-option" type="button" role="menuitemradio" aria-checked="false" data-workspace="Northstar Labs" data-initial="N"><span class="workspace-option-mark northstar-mark">N</span><span class="workspace-option-copy"><strong>Northstar Labs</strong><small>Demo workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <button class="workspace-option" type="button" role="menuitemradio" aria-checked="false" data-workspace="Brightside Health" data-initial="B"><span class="workspace-option-mark brightside-mark">B</span><span class="workspace-option-copy"><strong>Brightside Health</strong><small>Demo workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <div class="workspace-menu-note">Workspaces available to your account</div>
+          </div>
+        </div>
+
+        <!-- Navigation links are ready to connect to their individual application pages. -->
+        <nav class="nav-groups">
+          <div class="nav-group">
+            <span class="nav-label">Workspace</span>
+            <a class="nav-link" href="index.html"><span class="nav-icon">▦</span><span>Dashboard</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">Recruitment</span>
+            <a class="nav-link" href="jobs.html"><span class="nav-icon">▣</span><span>Jobs</span><span class="nav-count">8</span></a>
+            <a class="nav-link" href="candidates.html"><span class="nav-icon">♙</span><span>Candidates</span></a>
+            <a class="nav-link" href="applications.html"><span class="nav-icon">⇥</span><span>Applications</span></a>
+            <a class="nav-link active" href="interviews.html" aria-current="page"><span class="nav-icon">◷</span><span>Interviews</span><span class="nav-count muted-count">4</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">Insights</span>
+            <a class="nav-link" href="analytics.html"><span class="nav-icon">▥</span><span>Analytics</span></a>
+            <a class="nav-link" href="reports.html"><span class="nav-icon">▤</span><span>Reports</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">System</span>
+            <a class="nav-link" href="activity.html"><span class="nav-icon">◴</span><span>Activity log</span></a>
+            <a class="nav-link" href="#settings"><span class="nav-icon">⚙</span><span>Settings</span></a>
+            <!-- Hide this link for non-administrator accounts when roles are connected. -->
+            <a class="nav-link admin-link" data-admin-only href="#users"><span class="nav-icon">♧</span><span>User management</span></a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Sidebar bottom actions and signed-in user indicator. -->
+      <div class="sidebar-bottom">
+        <a class="nav-link help-link" href="#help"><span class="nav-icon">?</span><span>Help &amp; support</span><span class="external-mark">↗</span></a>
+        <button class="collapse-control" id="collapse-sidebar" type="button"><span class="nav-icon">⇤</span><span>Collapse sidebar</span></button>
+        <div class="sidebar-user"><div class="avatar avatar-lavender">SC</div><div class="user-copy"><strong>Sarah Chen</strong><small>Administrator</small></div><span class="user-status" title="Online"></span></div>
+      </div>
+    </aside>
+
+    <!-- A dim layer lets mobile users dismiss the open navigation. -->
+    <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Close navigation"></button>
+
+    <!-- Main workspace includes the topbar and the current page content. -->
+    <div class="workspace">
+      <!-- Topbar contains mobile navigation, breadcrumbs, global search, and menus. -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation"><span></span><span></span><span></span></button>
+          <div class="breadcrumbs"><span>Recruitment</span><span class="crumb-separator">/</span><strong>Interviews</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <!-- Global search covers jobs and candidates in the connected application. -->
+          <label class="global-search"><span class="search-icon" aria-hidden="true">⌕</span><input id="global-search" type="search" placeholder="Search jobs, candidates..." aria-label="Search jobs and candidates"><kbd>⌘ K</kbd></label>
+          <div class="menu-anchor">
+            <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notifications" aria-expanded="false"><span class="bell-icon">♧</span><i class="notification-dot"></i></button>
+            <div class="dropdown notification-menu" id="notification-menu" hidden>
+              <div class="dropdown-heading"><strong>Notifications</strong><button type="button" class="text-button" id="mark-read">Mark all read</button></div>
+              <div class="notification-item unread"><span class="notification-symbol blue-symbol">♙</span><span><strong>New candidate application</strong><small>Product Designer · 12 min ago</small></span></div>
+              <div class="notification-item unread"><span class="notification-symbol green-symbol">✓</span><span><strong>Interview feedback is due</strong><small>Jordan Lee · Today, 2:30 PM</small></span></div>
+              <div class="notification-item"><span class="notification-symbol violet-symbol">▣</span><span><strong>Job post is performing well</strong><small>Senior Engineer · 1 hour ago</small></span></div>
+              <a class="dropdown-footer" href="#notifications">View all notifications <span>→</span></a>
+            </div>
+          </div>
+          <div class="menu-anchor profile-anchor">
+            <button class="profile-trigger" id="profile-toggle" type="button" aria-expanded="false"><span class="avatar avatar-lavender">SC</span><span class="profile-name">Sarah Chen</span><span class="chevron">⌄</span></button>
+            <div class="dropdown profile-menu" id="profile-menu" hidden>
+              <div class="profile-menu-header"><div class="avatar avatar-lavender">SC</div><span><strong>Sarah Chen</strong><small>sarah.chen@acme.com</small></span></div>
+              <a href="#profile"><span>♙</span>My profile</a>
+              <a href="#account-settings"><span>⚙</span>Account settings</a>
+              <div class="appearance-settings">
+                <span class="appearance-label">Appearance</span>
+                <div class="appearance-options" role="group" aria-label="Appearance mode">
+                  <button class="appearance-option" type="button" data-appearance-mode="light" aria-pressed="false">Light</button>
+                  <button class="appearance-option" type="button" data-appearance-mode="dark" aria-pressed="false">Dark</button>
+                  <button class="appearance-option" type="button" data-appearance-mode="system" aria-pressed="false">System</button>
+                </div>
+              </div>
+              <div class="dropdown-rule"></div>
+              <a href="../index.html" class="logout-link"><span>↪</span>Log out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Interviews page: scheduled meetings linked to candidate applications. -->
+      <main class="main-content interviews-main">
+        <section class="page-heading"><div><div class="date-label"><span class="date-dot"></span> RECRUITMENT</div><h1>Interviews</h1><p>Schedule and follow interviews linked to candidates and open roles.</p></div><button class="primary-button" id="schedule-interview" type="button"><span>＋</span> Schedule interview</button></section>
+        <section class="interviews-summary" aria-label="Interview summary">
+          <article class="interview-stat"><span class="interview-stat-icon stat-blue">◷</span><div><small>Scheduled</small><strong id="interview-scheduled-count">0</strong></div><span class="interview-stat-note">Upcoming meetings</span></article>
+          <article class="interview-stat"><span class="interview-stat-icon stat-green">◉</span><div><small>Today</small><strong id="interview-today-count">0</strong></div><span class="interview-stat-note">On today's calendar</span></article>
+          <article class="interview-stat"><span class="interview-stat-icon stat-violet">✓</span><div><small>Completed</small><strong id="interview-completed-count">0</strong></div><span class="interview-stat-note">Finished interviews</span></article>
+          <article class="interview-stat"><span class="interview-stat-icon stat-amber">↻</span><div><small>Cancelled</small><strong id="interview-cancelled-count">0</strong></div><span class="interview-stat-note">Cancelled meetings</span></article>
+        </section>
+        <section class="panel interviews-panel-page" aria-labelledby="interviews-list-title">
+          <div class="panel-heading interviews-panel-heading"><div><h2 id="interviews-list-title">Interview schedule</h2><p>All interview meetings in this workspace</p></div></div>
+          <div class="interviews-toolbar"><label class="interviews-search"><span aria-hidden="true">⌕</span><input id="interview-search" type="search" placeholder="Search candidate, job, or interviewer..." aria-label="Search interviews"></label><div class="interviews-filters"><label><span class="visually-hidden">Filter by date</span><input id="interview-date-filter" type="date" aria-label="Filter by interview date"></label><label><span class="visually-hidden">Filter by status</span><select id="interview-status-filter"><option value="all">All statuses</option><option>Scheduled</option><option>Completed</option><option>Cancelled</option></select></label></div></div>
+          <div class="interviews-table-scroll"><table class="interviews-table"><thead><tr><th>Date</th><th>Time</th><th>Candidate</th><th>Job</th><th>Interview</th><th>Interviewer</th><th>Status</th><th>Open</th></tr></thead><tbody id="interviews-table-body"></tbody></table></div>
+          <div class="interviews-empty" id="interviews-empty" hidden><strong>No interviews found</strong><span>Schedule an interview here or from an application in the pipeline.</span></div>
+          <div class="interviews-table-footer"><span id="interview-result-count">Showing 0 interviews</span><span>Interview records save in this browser for the selected workspace.</span></div>
+        </section>
+        <footer class="page-footer"><span>© 2026 RMAP · Recruitment Management &amp; Analytics Platform</span><span>Need a hand? <a href="#help">Visit help center</a></span></footer>
+        <div class="interview-modal-backdrop" id="interview-modal" hidden><section class="interview-modal" role="dialog" aria-modal="true" aria-labelledby="interview-modal-title">
+          <div class="interview-modal-heading"><div><h2 id="interview-modal-title">Schedule interview</h2><p>Choose an existing candidate application to keep the pipeline linked.</p></div><button class="interview-modal-close" type="button" data-close-interview aria-label="Close dialog">×</button></div>
+          <form id="interview-form"><label class="interview-field">Candidate and job application<select name="application" id="interview-application" required><option value="">Select an application</option></select></label>
+            <div class="interview-form-row"><label class="interview-field">Date<input type="date" name="date" id="interview-date" required></label><label class="interview-field">Time<input type="time" name="time" id="interview-time" required></label></div>
+            <div class="interview-form-row"><label class="interview-field">Interview type<select name="type"><option>Recruiter screen</option><option>Technical interview</option><option>Portfolio review</option><option>Hiring manager interview</option><option>Panel interview</option><option>Final interview</option></select></label><label class="interview-field">Interviewer<input name="interviewer" required maxlength="90" placeholder="e.g. Alex Morgan"></label></div>
+            <label class="interview-field">Location or meeting link<input name="location" maxlength="160" placeholder="Video call link or meeting room"></label><label class="interview-field">Notes<textarea name="notes" rows="3" maxlength="500" placeholder="Optional interview preparation notes"></textarea></label>
+            <div class="interview-form-actions"><button class="interview-cancel" type="button" data-close-interview>Cancel</button><button class="primary-button" type="submit">Save interview</button></div>
+          </form></section></div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Accessible status region for search and prototype actions. -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- Interactive controls for navigation, menus, search, and the create-job prototype. -->
+  <script src="js/ambient.js" defer></script>
+  <script src="js/rmap-background.js" defer></script>
+  <script src="js/candidate-data.js" defer></script>
+  <script src="js/interview-count.js" defer></script>
+  <script src="js/activity-store.js" defer></script>
+  <script src="js/workflow-shell.js" defer></script>
+  <script src="js/interviews.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Core document metadata and responsive viewport setup. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fc">
+  <meta name="description" content="RMAP recruitment management and analytics workspace dashboard.">
+  <title>Dashboard | RMAP</title>
+  <!-- Application styles are kept inside the app folder. -->
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/rmap-background.css">
+  <link rel="stylesheet" href="css/readability.css">
+  <link rel="stylesheet" href="css/global-effects.css">
+</head>
+<body class="rmap-bg-host rmap-bg-dashboard">
+  <!-- The sidebar and workspace form the persistent application shell. -->
+  <div class="app-shell">
+    <!-- Main navigation: product identity, workspace, grouped pages, and account status. -->
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-top">
+        <a class="brand" href="index.html" aria-label="RMAP Dashboard">
+          <img src="../Assets/images/Futuristic%20RMAP%20Recruitment%20Analytics%20Logo-1.png" alt="">
+          <span class="brand-copy"><strong>RMAP</strong><small>Recruitment analytics</small></span>
+        </a>
+        <button class="icon-button sidebar-close" id="sidebar-close" type="button" aria-label="Close navigation">×</button>
+
+        <!-- Workspace picker opens the available workspace menu. -->
+        <div class="workspace-picker">
+          <button class="workspace-switch" id="workspace-toggle" type="button" aria-label="Switch workspace" aria-expanded="false" aria-controls="workspace-menu">
+            <span class="workspace-mark">A</span>
+            <span class="workspace-copy"><small>WORKSPACE</small><strong>Acme Talent Group</strong></span>
+            <span class="workspace-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="workspace-menu" id="workspace-menu" role="menu" aria-label="Choose workspace" hidden>
+            <div class="workspace-menu-heading">Switch workspace</div>
+            <button class="workspace-option selected" type="button" role="menuitemradio" aria-checked="true" data-workspace="Acme Talent Group" data-initial="A"><span class="workspace-option-mark">A</span><span class="workspace-option-copy"><strong>Acme Talent Group</strong><small>Current workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <button class="workspace-option" type="button" role="menuitemradio" aria-checked="false" data-workspace="Northstar Labs" data-initial="N"><span class="workspace-option-mark northstar-mark">N</span><span class="workspace-option-copy"><strong>Northstar Labs</strong><small>Demo workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <button class="workspace-option" type="button" role="menuitemradio" aria-checked="false" data-workspace="Brightside Health" data-initial="B"><span class="workspace-option-mark brightside-mark">B</span><span class="workspace-option-copy"><strong>Brightside Health</strong><small>Demo workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <div class="workspace-menu-note">Workspaces available to your account</div>
+          </div>
+        </div>
+
+        <!-- Navigation links are ready to connect to their individual application pages. -->
+        <nav class="nav-groups">
+          <div class="nav-group">
+            <span class="nav-label">Workspace</span>
+            <a class="nav-link active" href="index.html" aria-current="page"><span class="nav-icon">▦</span><span>Dashboard</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">Recruitment</span>
+            <a class="nav-link" href="jobs.html"><span class="nav-icon">▣</span><span>Jobs</span><span class="nav-count">8</span></a>
+            <a class="nav-link" href="candidates.html"><span class="nav-icon">♙</span><span>Candidates</span></a>
+            <a class="nav-link" href="applications.html"><span class="nav-icon">⇥</span><span>Applications</span></a>
+            <a class="nav-link" href="interviews.html"><span class="nav-icon">◷</span><span>Interviews</span><span class="nav-count muted-count">4</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">Insights</span>
+            <a class="nav-link" href="analytics.html"><span class="nav-icon">▥</span><span>Analytics</span></a>
+            <a class="nav-link" href="reports.html"><span class="nav-icon">▤</span><span>Reports</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">System</span>
+            <a class="nav-link" href="activity.html"><span class="nav-icon">◴</span><span>Activity log</span></a>
+            <a class="nav-link" href="#settings"><span class="nav-icon">⚙</span><span>Settings</span></a>
+            <!-- Hide this link for non-administrator accounts when roles are connected. -->
+            <a class="nav-link admin-link" data-admin-only href="#users"><span class="nav-icon">♧</span><span>User management</span></a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Sidebar bottom actions and signed-in user indicator. -->
+      <div class="sidebar-bottom">
+        <a class="nav-link help-link" href="#help"><span class="nav-icon">?</span><span>Help &amp; support</span><span class="external-mark">↗</span></a>
+        <button class="collapse-control" id="collapse-sidebar" type="button"><span class="nav-icon">⇤</span><span>Collapse sidebar</span></button>
+        <div class="sidebar-user"><div class="avatar avatar-lavender">SC</div><div class="user-copy"><strong>Sarah Chen</strong><small>Administrator</small></div><span class="user-status" title="Online"></span></div>
+      </div>
+    </aside>
+
+    <!-- A dim layer lets mobile users dismiss the open navigation. -->
+    <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Close navigation"></button>
+
+    <!-- Main workspace includes the topbar and the current page content. -->
+    <div class="workspace">
+      <!-- Topbar contains mobile navigation, breadcrumbs, global search, and menus. -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation"><span></span><span></span><span></span></button>
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-separator">/</span><strong>Dashboard</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <!-- Global search covers jobs and candidates in the connected application. -->
+          <label class="global-search"><span class="search-icon" aria-hidden="true">⌕</span><input id="global-search" type="search" placeholder="Search jobs, candidates..." aria-label="Search jobs and candidates"><kbd>⌘ K</kbd></label>
+          <div class="menu-anchor">
+            <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notifications" aria-expanded="false"><span class="bell-icon">♧</span><i class="notification-dot"></i></button>
+            <div class="dropdown notification-menu" id="notification-menu" hidden>
+              <div class="dropdown-heading"><strong>Notifications</strong><button type="button" class="text-button" id="mark-read">Mark all read</button></div>
+              <div class="notification-item unread"><span class="notification-symbol blue-symbol">♙</span><span><strong>New candidate application</strong><small>Product Designer · 12 min ago</small></span></div>
+              <div class="notification-item unread"><span class="notification-symbol green-symbol">✓</span><span><strong>Interview feedback is due</strong><small>Jordan Lee · Today, 2:30 PM</small></span></div>
+              <div class="notification-item"><span class="notification-symbol violet-symbol">▣</span><span><strong>Job post is performing well</strong><small>Senior Engineer · 1 hour ago</small></span></div>
+              <a class="dropdown-footer" href="#notifications">View all notifications <span>→</span></a>
+            </div>
+          </div>
+          <div class="menu-anchor profile-anchor">
+            <button class="profile-trigger" id="profile-toggle" type="button" aria-expanded="false"><span class="avatar avatar-lavender">SC</span><span class="profile-name">Sarah Chen</span><span class="chevron">⌄</span></button>
+            <div class="dropdown profile-menu" id="profile-menu" hidden>
+              <div class="profile-menu-header"><div class="avatar avatar-lavender">SC</div><span><strong>Sarah Chen</strong><small>sarah.chen@acme.com</small></span></div>
+              <a href="#profile"><span>♙</span>My profile</a>
+              <a href="#account-settings"><span>⚙</span>Account settings</a>
+              <div class="appearance-settings">
+                <span class="appearance-label">Appearance</span>
+                <div class="appearance-options" role="group" aria-label="Appearance mode">
+                  <button class="appearance-option" type="button" data-appearance-mode="light" aria-pressed="false">Light</button>
+                  <button class="appearance-option" type="button" data-appearance-mode="dark" aria-pressed="false">Dark</button>
+                  <button class="appearance-option" type="button" data-appearance-mode="system" aria-pressed="false">System</button>
+                </div>
+              </div>
+              <div class="dropdown-rule"></div>
+              <a href="../index.html" class="logout-link"><span>↪</span>Log out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Dashboard page: heading, main action, metric cards, and hiring activity. -->
+      <main class="main-content">
+        <section class="page-heading">
+          <div><div class="date-label"><span class="date-dot"></span> MONDAY, OCTOBER 12, 2026</div><h1>Good morning, Sarah <span class="wave">✦</span></h1><p>Here’s what’s happening across your hiring pipeline today.</p></div>
+          <button class="primary-button" id="create-job" type="button"><span>＋</span> Create a job</button>
+        </section>
+
+        <!-- Summary cards show key recruitment metrics and period-over-period change. -->
+        <section class="metrics-grid" aria-label="Recruitment summary">
+          <article class="metric-card"><div class="metric-top"><span>Open positions</span><span class="metric-icon icon-blue">▣</span></div><div class="metric-value">24</div><div class="metric-bottom"><span class="trend positive">↗ 12.5%</span><span>vs. last month</span><svg class="sparkline spark-blue" viewBox="0 0 90 30" aria-hidden="true"><path d="M2 24 C12 22 14 12 24 17 S39 21 47 12 S58 17 66 8 S77 14 88 3"/></svg></div></article>
+          <article class="metric-card"><div class="metric-top"><span>Active candidates</span><span class="metric-icon icon-violet">♙</span></div><div class="metric-value">1,284</div><div class="metric-bottom"><span class="trend positive">↗ 8.2%</span><span>vs. last month</span><svg class="sparkline spark-violet" viewBox="0 0 90 30" aria-hidden="true"><path d="M2 22 C12 20 14 24 24 14 S38 18 48 10 S59 15 66 8 S79 12 88 4"/></svg></div></article>
+          <article class="metric-card"><div class="metric-top"><span>Interviews this week</span><span class="metric-icon icon-amber">◷</span></div><div class="metric-value">18</div><div class="metric-bottom"><span class="trend positive">↗ 4.6%</span><span>vs. last week</span><svg class="sparkline spark-amber" viewBox="0 0 90 30" aria-hidden="true"><path d="M2 23 C12 15 16 22 25 19 S38 8 47 13 S57 20 66 10 S77 13 88 5"/></svg></div></article>
+          <article class="metric-card"><div class="metric-top"><span>Time to hire</span><span class="metric-icon icon-green">◴</span></div><div class="metric-value">21 <small>days</small></div><div class="metric-bottom"><span class="trend positive">↓ 3 days</span><span>vs. last month</span><svg class="sparkline spark-green" viewBox="0 0 90 30" aria-hidden="true"><path d="M2 5 C13 9 15 7 24 12 S39 10 48 17 S59 12 68 21 S79 17 88 25"/></svg></div></article>
+        </section>
+
+        <section class="content-grid">
+          <!-- Pipeline snapshot visualizes candidate counts at each hiring stage. -->
+          <article class="panel pipeline-panel" id="pipeline">
+            <div class="panel-heading"><div><h2>Hiring pipeline</h2><p>Candidate progress across all open roles</p></div><button class="period-select" type="button">This month <span>⌄</span></button></div>
+            <div class="pipeline-summary"><strong>486</strong><span>total candidates in process</span><span class="pipeline-change">↗ 16.8% <small>vs. last month</small></span></div>
+            <div class="pipeline-bars" aria-label="Candidate stages">
+              <div class="stage"><div class="stage-count">186</div><div class="stage-track"><i class="stage-blue fill-100"></i></div><span>Applied</span></div>
+              <div class="stage"><div class="stage-count">124</div><div class="stage-track"><i class="stage-indigo fill-72"></i></div><span>Screening</span></div>
+              <div class="stage"><div class="stage-count">82</div><div class="stage-track"><i class="stage-violet fill-54"></i></div><span>Interview</span></div>
+              <div class="stage"><div class="stage-count">56</div><div class="stage-track"><i class="stage-purple fill-40"></i></div><span>Assessment</span></div>
+              <div class="stage"><div class="stage-count">38</div><div class="stage-track"><i class="stage-green fill-29"></i></div><span>Offer</span></div>
+            </div>
+            <a class="panel-link" href="applications.html">View applications <span>→</span></a>
+          </article>
+
+          <!-- Upcoming interview schedule with attendee initials and meeting details. -->
+          <article class="panel interviews-panel" id="interviews">
+            <div class="panel-heading"><div><h2>Upcoming interviews</h2><p>Your schedule for today</p></div><button class="more-button" type="button" aria-label="More interview options">···</button></div>
+            <div class="interview-list">
+              <div class="interview-item"><div class="candidate-avatar candidate-coral">JL</div><div class="interview-info"><strong>Jordan Lee</strong><span>Senior Product Designer</span><small><i class="interview-time-dot"></i> 10:30 AM <b>·</b> Portfolio review</small></div><span class="interview-type">1st</span></div>
+              <div class="interview-item"><div class="candidate-avatar candidate-blue">AP</div><div class="interview-info"><strong>Amara Patel</strong><span>Frontend Engineer</span><small><i class="interview-time-dot"></i> 1:00 PM <b>·</b> Technical interview</small></div><span class="interview-type">2nd</span></div>
+              <div class="interview-item"><div class="candidate-avatar candidate-gold">MW</div><div class="interview-info"><strong>Marcus Williams</strong><span>Marketing Lead</span><small><i class="interview-time-dot"></i> 3:15 PM <b>·</b> Hiring manager</small></div><span class="interview-type">Final</span></div>
+            </div>
+            <a class="panel-link" href="interviews.html">View interview calendar <span>→</span></a>
+          </article>
+
+          <!-- Recent applications table with search-friendly candidate and role text. -->
+          <article class="panel applications-panel" id="candidates">
+            <div class="panel-heading"><div><h2>Recent applications</h2><p>Latest candidates added to your pipeline</p></div><a class="view-all" href="applications.html">View all <span>→</span></a></div>
+            <div class="table-scroll"><table><thead><tr><th>Candidate</th><th>Applied for</th><th>Applied date</th><th>Status</th><th></th></tr></thead><tbody>
+              <tr><td><div class="table-person"><span class="candidate-avatar candidate-coral">EC</span><span><strong>Emily Carter</strong><small>emily.carter@email.com</small></span></div></td><td>Product Designer</td><td>Oct 12, 2026</td><td><span class="status-pill status-screening">Screening</span></td><td><button class="row-more" aria-label="More actions for Emily Carter">···</button></td></tr>
+              <tr><td><div class="table-person"><span class="candidate-avatar candidate-green">RK</span><span><strong>Ryan Kim</strong><small>ryan.kim@email.com</small></span></div></td><td>Backend Engineer</td><td>Oct 11, 2026</td><td><span class="status-pill status-interview">Interview</span></td><td><button class="row-more" aria-label="More actions for Ryan Kim">···</button></td></tr>
+              <tr><td><div class="table-person"><span class="candidate-avatar candidate-violet">SP</span><span><strong>Sofia Patel</strong><small>sofia.patel@email.com</small></span></div></td><td>Marketing Manager</td><td>Oct 11, 2026</td><td><span class="status-pill status-new">New</span></td><td><button class="row-more" aria-label="More actions for Sofia Patel">···</button></td></tr>
+              <tr><td><div class="table-person"><span class="candidate-avatar candidate-blue">DO</span><span><strong>David Okafor</strong><small>david.okafor@email.com</small></span></div></td><td>Product Designer</td><td>Oct 10, 2026</td><td><span class="status-pill status-offer">Offer</span></td><td><button class="row-more" aria-label="More actions for David Okafor">···</button></td></tr>
+            </tbody></table></div>
+            <div class="table-footer"><span>Showing <strong>4</strong> of <strong>1284</strong> candidates</span><div class="pagination"><button type="button" aria-label="Previous page" disabled>‹</button><button type="button" class="current-page" aria-label="Page 1">1</button><button type="button" aria-label="Page 2">2</button><button type="button" aria-label="Page 3">3</button><span>…</span><button type="button" aria-label="Next page">›</button></div></div>
+          </article>
+
+          <!-- Activity feed summarizes team changes to jobs and hiring workflows. -->
+          <article class="panel activity-panel" id="activity">
+            <div class="panel-heading"><div><h2>Recent activity</h2><p>What your team has been up to</p></div><button class="more-button" type="button" aria-label="More activity options">···</button></div>
+            <div class="activity-list">
+              <div class="activity-item"><span class="activity-icon activity-candidate">♙</span><p><strong>Alex Morgan</strong> moved <b>Jordan Lee</b> to <em>Interview</em><small>12 minutes ago</small></p></div>
+              <div class="activity-item"><span class="activity-icon activity-job">▣</span><p><strong>You</strong> published a new job <b>Product Designer</b><small>1 hour ago</small></p></div>
+              <div class="activity-item"><span class="activity-icon activity-feedback">✓</span><p><strong>Priya Shah</strong> submitted interview feedback for <b>Amara Patel</b><small>2 hours ago</small></p></div>
+              <div class="activity-item"><span class="activity-icon activity-offer">✦</span><p><strong>You</strong> sent an offer to <b>David Okafor</b><small>Yesterday at 4:32 PM</small></p></div>
+            </div>
+            <a class="panel-link" href="#full-activity">View activity log <span>→</span></a>
+          </article>
+        </section>
+        <footer class="page-footer"><span>© 2026 RMAP · Recruitment Management &amp; Analytics Platform</span><span>Need a hand? <a href="#help">Visit help center</a></span></footer>
+      </main>
+    </div>
+  </div>
+
+  <!-- Accessible status region for search and prototype actions. -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- Interactive controls for navigation, menus, search, and the create-job prototype. -->
+  <script src="js/ambient.js" defer></script>
+  <script src="js/candidate-data.js" defer></script>
+  <script src="js/interview-count.js" defer></script>
+  <script src="js/activity-store.js" defer></script>
+  <script src="js/rmap-background.js" defer></script>
+  <script src="js/app.js" defer></script>
+</body>
+</html>

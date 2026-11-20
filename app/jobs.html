@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Core document metadata and responsive viewport setup. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fc">
+  <meta name="description" content="RMAP recruitment management and analytics workspace dashboard.">
+  <title>Jobs | RMAP</title>
+  <!-- Application styles are kept inside the app folder. -->
+  <link rel="stylesheet" href="css/app.css">
+  <link rel="stylesheet" href="css/rmap-background.css">
+  <link rel="stylesheet" href="css/jobs.css">
+  <link rel="stylesheet" href="css/readability.css">
+  <link rel="stylesheet" href="css/global-effects.css">
+</head>
+<body class="rmap-bg-host rmap-bg-dashboard">
+  <!-- The sidebar and workspace form the persistent application shell. -->
+  <div class="app-shell">
+    <!-- Main navigation: product identity, workspace, grouped pages, and account status. -->
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <div class="sidebar-top">
+        <a class="brand" href="index.html" aria-label="RMAP Dashboard">
+          <img src="../Assets/images/Futuristic%20RMAP%20Recruitment%20Analytics%20Logo-1.png" alt="">
+          <span class="brand-copy"><strong>RMAP</strong><small>Recruitment analytics</small></span>
+        </a>
+        <button class="icon-button sidebar-close" id="sidebar-close" type="button" aria-label="Close navigation">×</button>
+
+        <!-- Workspace picker opens the available workspace menu. -->
+        <div class="workspace-picker">
+          <button class="workspace-switch" id="workspace-toggle" type="button" aria-label="Switch workspace" aria-expanded="false" aria-controls="workspace-menu">
+            <span class="workspace-mark">A</span>
+            <span class="workspace-copy"><small>WORKSPACE</small><strong>Acme Talent Group</strong></span>
+            <span class="workspace-chevron" aria-hidden="true">⌄</span>
+          </button>
+          <div class="workspace-menu" id="workspace-menu" role="menu" aria-label="Choose workspace" hidden>
+            <div class="workspace-menu-heading">Switch workspace</div>
+            <button class="workspace-option selected" type="button" role="menuitemradio" aria-checked="true" data-workspace="Acme Talent Group" data-initial="A"><span class="workspace-option-mark">A</span><span class="workspace-option-copy"><strong>Acme Talent Group</strong><small>Current workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <button class="workspace-option" type="button" role="menuitemradio" aria-checked="false" data-workspace="Northstar Labs" data-initial="N"><span class="workspace-option-mark northstar-mark">N</span><span class="workspace-option-copy"><strong>Northstar Labs</strong><small>Demo workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <button class="workspace-option" type="button" role="menuitemradio" aria-checked="false" data-workspace="Brightside Health" data-initial="B"><span class="workspace-option-mark brightside-mark">B</span><span class="workspace-option-copy"><strong>Brightside Health</strong><small>Demo workspace</small></span><span class="workspace-check" aria-hidden="true">✓</span></button>
+            <div class="workspace-menu-note">Workspaces available to your account</div>
+          </div>
+        </div>
+
+        <!-- Navigation links are ready to connect to their individual application pages. -->
+        <nav class="nav-groups">
+          <div class="nav-group">
+            <span class="nav-label">Workspace</span>
+            <a class="nav-link" href="index.html"><span class="nav-icon">▦</span><span>Dashboard</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">Recruitment</span>
+            <a class="nav-link active" href="jobs.html" aria-current="page"><span class="nav-icon">▣</span><span>Jobs</span><span class="nav-count">8</span></a>
+            <a class="nav-link" href="candidates.html"><span class="nav-icon">♙</span><span>Candidates</span></a>
+            <a class="nav-link" href="applications.html"><span class="nav-icon">⇥</span><span>Applications</span></a>
+            <a class="nav-link" href="interviews.html"><span class="nav-icon">◷</span><span>Interviews</span><span class="nav-count muted-count">4</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">Insights</span>
+            <a class="nav-link" href="analytics.html"><span class="nav-icon">▥</span><span>Analytics</span></a>
+            <a class="nav-link" href="reports.html"><span class="nav-icon">▤</span><span>Reports</span></a>
+          </div>
+          <div class="nav-group">
+            <span class="nav-label">System</span>
+            <a class="nav-link" href="activity.html"><span class="nav-icon">◴</span><span>Activity log</span></a>
+            <a class="nav-link" href="#settings"><span class="nav-icon">⚙</span><span>Settings</span></a>
+            <!-- Hide this link for non-administrator accounts when roles are connected. -->
+            <a class="nav-link admin-link" data-admin-only href="#users"><span class="nav-icon">♧</span><span>User management</span></a>
+          </div>
+        </nav>
+      </div>
+
+      <!-- Sidebar bottom actions and signed-in user indicator. -->
+      <div class="sidebar-bottom">
+        <a class="nav-link help-link" href="#help"><span class="nav-icon">?</span><span>Help &amp; support</span><span class="external-mark">↗</span></a>
+        <button class="collapse-control" id="collapse-sidebar" type="button"><span class="nav-icon">⇤</span><span>Collapse sidebar</span></button>
+        <div class="sidebar-user"><div class="avatar avatar-lavender">SC</div><div class="user-copy"><strong>Sarah Chen</strong><small>Administrator</small></div><span class="user-status" title="Online"></span></div>
+      </div>
+    </aside>
+
+    <!-- A dim layer lets mobile users dismiss the open navigation. -->
+    <button class="sidebar-backdrop" id="sidebar-backdrop" type="button" aria-label="Close navigation"></button>
+
+    <!-- Main workspace includes the topbar and the current page content. -->
+    <div class="workspace">
+      <!-- Topbar contains mobile navigation, breadcrumbs, global search, and menus. -->
+      <header class="topbar">
+        <div class="topbar-left">
+          <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open navigation"><span></span><span></span><span></span></button>
+          <div class="breadcrumbs"><span>Workspace</span><span class="crumb-separator">/</span><strong>Jobs</strong></div>
+        </div>
+        <div class="topbar-actions">
+          <!-- Global search covers jobs and candidates in the connected application. -->
+          <label class="global-search"><span class="search-icon" aria-hidden="true">⌕</span><input id="global-search" type="search" placeholder="Search jobs, candidates..." aria-label="Search jobs and candidates"><kbd>⌘ K</kbd></label>
+          <div class="menu-anchor">
+            <button class="icon-button notification-button" id="notification-toggle" type="button" aria-label="Notifications" aria-expanded="false"><span class="bell-icon">♧</span><i class="notification-dot"></i></button>
+            <div class="dropdown notification-menu" id="notification-menu" hidden>
+              <div class="dropdown-heading"><strong>Notifications</strong><button type="button" class="text-button" id="mark-read">Mark all read</button></div>
+              <div class="notification-item unread"><span class="notification-symbol blue-symbol">♙</span><span><strong>New candidate application</strong><small>Product Designer · 12 min ago</small></span></div>
+              <div class="notification-item unread"><span class="notification-symbol green-symbol">✓</span><span><strong>Interview feedback is due</strong><small>Jordan Lee · Today, 2:30 PM</small></span></div>
+              <div class="notification-item"><span class="notification-symbol violet-symbol">▣</span><span><strong>Job post is performing well</strong><small>Senior Engineer · 1 hour ago</small></span></div>
+              <a class="dropdown-footer" href="#notifications">View all notifications <span>→</span></a>
+            </div>
+          </div>
+          <div class="menu-anchor profile-anchor">
+            <button class="profile-trigger" id="profile-toggle" type="button" aria-expanded="false"><span class="avatar avatar-lavender">SC</span><span class="profile-name">Sarah Chen</span><span class="chevron">⌄</span></button>
+            <div class="dropdown profile-menu" id="profile-menu" hidden>
+              <div class="profile-menu-header"><div class="avatar avatar-lavender">SC</div><span><strong>Sarah Chen</strong><small>sarah.chen@acme.com</small></span></div>
+              <a href="#profile"><span>♙</span>My profile</a>
+              <a href="#account-settings"><span>⚙</span>Account settings</a>
+              <div class="appearance-settings">
+                <span class="appearance-label">Appearance</span>
+                <div class="appearance-options" role="group" aria-label="Appearance mode">
+                  <button class="appearance-option" type="button" data-appearance-mode="light" aria-pressed="false">Light</button>
+                  <button class="appearance-option" type="button" data-appearance-mode="dark" aria-pressed="false">Dark</button>
+                  <button class="appearance-option" type="button" data-appearance-mode="system" aria-pressed="false">System</button>
+                </div>
+              </div>
+              <div class="dropdown-rule"></div>
+              <a href="../index.html" class="logout-link"><span>↪</span>Log out</a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Jobs page: overview, filters, listings, and create-job dialog. -->
+      <main class="main-content jobs-main">
+        <section class="page-heading">
+          <div><div class="date-label"><span class="date-dot"></span> RECRUITMENT</div><h1>Jobs</h1><p>Create openings, review applicant activity, and keep your hiring team aligned.</p></div>
+          <button class="primary-button" id="create-job" type="button"><span>＋</span> Create a job</button>
+        </section>
+        <!-- Quick counts summarize the current jobs shown on this page. -->
+        <section class="jobs-summary" aria-label="Jobs summary">
+          <article class="jobs-stat"><span class="jobs-stat-icon jobs-icon-blue">▣</span><div><small>Total jobs</small><strong id="total-jobs">8</strong></div><span class="jobs-stat-caption">Across all statuses</span></article>
+          <article class="jobs-stat"><span class="jobs-stat-icon jobs-icon-green">✓</span><div><small>Active</small><strong id="active-jobs">5</strong></div><span class="jobs-stat-caption">Accepting applications</span></article>
+          <article class="jobs-stat"><span class="jobs-stat-icon jobs-icon-amber">◷</span><div><small>Drafts</small><strong id="draft-jobs">2</strong></div><span class="jobs-stat-caption">Ready when you are</span></article>
+          <article class="jobs-stat"><span class="jobs-stat-icon jobs-icon-violet">♙</span><div><small>Applicants</small><strong id="applicant-total">247</strong></div><span class="jobs-stat-caption">Across all listed jobs</span></article>
+        </section>
+        <!-- Job list with status tabs, text search, and department filtering. -->
+        <section class="panel jobs-panel" aria-labelledby="jobs-list-title">
+          <div class="panel-heading jobs-panel-heading"><div><h2 id="jobs-list-title">All jobs</h2><p>Manage your team's open roles and hiring activity</p></div><button class="jobs-export" id="export-jobs" type="button"><span aria-hidden="true">↓</span> Export</button></div>
+          <div class="jobs-toolbar">
+            <div class="job-tabs" role="group" aria-label="Filter jobs by status">
+              <button class="job-tab selected" type="button" data-status-filter="all" aria-pressed="true">All jobs <span data-tab-count="all">8</span></button>
+              <button class="job-tab" type="button" data-status-filter="active" aria-pressed="false">Active <span data-tab-count="active">5</span></button>
+              <button class="job-tab" type="button" data-status-filter="draft" aria-pressed="false">Drafts <span data-tab-count="draft">2</span></button>
+              <button class="job-tab" type="button" data-status-filter="closed" aria-pressed="false">Closed <span data-tab-count="closed">1</span></button>
+            </div>
+            <div class="job-filters">
+              <label class="jobs-search"><span aria-hidden="true">⌕</span><input id="jobs-search" type="search" placeholder="Search job title..." aria-label="Search jobs"></label>
+              <label class="department-filter"><span class="visually-hidden">Filter by department</span><select id="department-filter"><option value="all">All departments</option><option>Engineering</option><option>Marketing</option><option>Product Design</option><option>People</option><option>Customer Success</option></select></label>
+            </div>
+          </div>
+          <div class="jobs-table-scroll"><table class="jobs-table"><thead><tr><th>Job title</th><th>Department</th><th>Applicants</th><th>Workplace</th><th>Status</th><th>Posted</th><th><span class="visually-hidden">Actions</span></th></tr></thead><tbody id="jobs-table-body">
+            <tr class="job-row" data-status="active" data-department="Product Design" data-applicants="42"><td><div class="job-title-cell"><span class="job-avatar job-avatar-blue">PD</span><span><strong>Senior Product Designer</strong><small>RMAP-1042 · Full time</small></span></div></td><td>Product Design</td><td><a class="applicant-link" href="#">42 <span>applicants</span></a></td><td>San Francisco · Hybrid</td><td><span class="job-status status-active">Active</span></td><td>Oct 28, 2026</td><td><button class="job-actions" type="button" aria-label="Actions for Senior Product Designer">···</button></td></tr>
+            <tr class="job-row" data-status="active" data-department="Engineering" data-applicants="68"><td><div class="job-title-cell"><span class="job-avatar job-avatar-violet">FE</span><span><strong>Frontend Engineer</strong><small>RMAP-1041 · Full time</small></span></div></td><td>Engineering</td><td><a class="applicant-link" href="#">68 <span>applicants</span></a></td><td>Remote · US</td><td><span class="job-status status-active">Active</span></td><td>Oct 24, 2026</td><td><button class="job-actions" type="button" aria-label="Actions for Frontend Engineer">···</button></td></tr>
+            <tr class="job-row" data-status="active" data-department="Marketing" data-applicants="31"><td><div class="job-title-cell"><span class="job-avatar job-avatar-orange">MM</span><span><strong>Marketing Manager</strong><small>RMAP-1039 · Full time</small></span></div></td><td>Marketing</td><td><a class="applicant-link" href="#">31 <span>applicants</span></a></td><td>New York · Hybrid</td><td><span class="job-status status-active">Active</span></td><td>Oct 21, 2026</td><td><button class="job-actions" type="button" aria-label="Actions for Marketing Manager">···</button></td></tr>
+            <tr class="job-row" data-status="draft" data-department="People" data-applicants="0"><td><div class="job-title-cell"><span class="job-avatar job-avatar-green">PO</span><span><strong>People Operations Lead</strong><small>RMAP-1038 · Full time</small></span></div></td><td>People</td><td><span class="no-applicants">—</span></td><td>Austin · On site</td><td><span class="job-status status-draft">Draft</span></td><td>Not posted</td><td><button class="job-actions" type="button" aria-label="Actions for People Operations Lead">···</button></td></tr>
+            <tr class="job-row" data-status="active" data-department="Engineering" data-applicants="54"><td><div class="job-title-cell"><span class="job-avatar job-avatar-blue">BE</span><span><strong>Backend Engineer</strong><small>RMAP-1036 · Full time</small></span></div></td><td>Engineering</td><td><a class="applicant-link" href="#">54 <span>applicants</span></a></td><td>Remote · US</td><td><span class="job-status status-active">Active</span></td><td>Oct 17, 2026</td><td><button class="job-actions" type="button" aria-label="Actions for Backend Engineer">···</button></td></tr>
+            <tr class="job-row" data-status="closed" data-department="Customer Success" data-applicants="29"><td><div class="job-title-cell"><span class="job-avatar job-avatar-pink">CS</span><span><strong>Customer Success Manager</strong><small>RMAP-1034 · Full time</small></span></div></td><td>Customer Success</td><td><a class="applicant-link" href="#">29 <span>applicants</span></a></td><td>Chicago · Hybrid</td><td><span class="job-status status-closed">Closed</span></td><td>Oct 12, 2026</td><td><button class="job-actions" type="button" aria-label="Actions for Customer Success Manager">···</button></td></tr>
+            <tr class="job-row" data-status="active" data-department="Product Design" data-applicants="23"><td><div class="job-title-cell"><span class="job-avatar job-avatar-orange">UX</span><span><strong>UX Researcher</strong><small>RMAP-1032 · Full time</small></span></div></td><td>Product Design</td><td><a class="applicant-link" href="#">23 <span>applicants</span></a></td><td>San Francisco · Hybrid</td><td><span class="job-status status-active">Active</span></td><td>Oct 09, 2026</td><td><button class="job-actions" type="button" aria-label="Actions for UX Researcher">···</button></td></tr>
+            <tr class="job-row" data-status="draft" data-department="Marketing" data-applicants="0"><td><div class="job-title-cell"><span class="job-avatar job-avatar-violet">CM</span><span><strong>Content Marketing Specialist</strong><small>RMAP-1030 · Full time</small></span></div></td><td>Marketing</td><td><span class="no-applicants">—</span></td><td>Remote · US</td><td><span class="job-status status-draft">Draft</span></td><td>Not posted</td><td><button class="job-actions" type="button" aria-label="Actions for Content Marketing Specialist">···</button></td></tr>
+          </tbody></table></div>
+          <div class="jobs-empty" id="jobs-empty" hidden><span>⌕</span><strong>No matching jobs</strong><small>Try another search or change the filters.</small></div>
+          <div class="jobs-table-footer"><span id="jobs-result-count">Showing <strong>8</strong> jobs</span><div class="jobs-pagination"><button type="button" disabled aria-label="Previous page">‹</button><button type="button" class="current-page" aria-label="Page 1">1</button><button type="button" disabled aria-label="Next page">›</button></div></div>
+        </section>
+        <footer class="page-footer"><span>© 2026 RMAP · Recruitment Management &amp; Analytics Platform</span><span>Need a hand? <a href="#help">Visit help center</a></span></footer>
+        <!-- Create-job dialog adds a new role to this demo list. -->
+        <div class="job-modal-backdrop" id="job-modal" hidden>
+          <section class="job-modal" role="dialog" aria-modal="true" aria-labelledby="job-modal-title">
+            <div class="job-modal-heading"><div><h2 id="job-modal-title">Create a job</h2><p>Add a new opening to your workspace.</p></div><button class="job-modal-close" type="button" data-close-job-modal aria-label="Close dialog">×</button></div>
+            <form id="job-form"><input type="hidden" name="jobId">
+              <label class="job-form-field">Job title<input name="title" required maxlength="90" placeholder="e.g. Product Designer"></label>
+              <div class="job-form-row"><label class="job-form-field">Department<select name="department" required><option value="">Select department</option><option>Engineering</option><option>Marketing</option><option>Product Design</option><option>People</option><option>Customer Success</option></select></label><label class="job-form-field">Employment type<select name="type"><option>Full time</option><option>Part time</option><option>Contract</option><option>Internship</option></select></label></div>
+              <div class="job-form-row"><label class="job-form-field">Location<input name="location" required maxlength="80" placeholder="e.g. Remote · US"></label><label class="job-form-field">Initial status<select name="status"><option value="active">Active</option><option value="draft">Draft</option><option value="closed">Closed</option></select></label></div>
+              <div class="job-form-actions"><button class="job-cancel" type="button" data-close-job-modal>Cancel</button><button class="primary-button" id="job-submit-label" type="submit">Create job</button></div>
+            </form>
+          </section>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Accessible status region for search and prototype actions. -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- Interactive controls for navigation, menus, search, and the create-job prototype. -->
+  <script src="js/ambient.js" defer></script>
+  <script src="js/rmap-background.js" defer></script>
+  <script src="js/candidate-data.js" defer></script>
+  <script src="js/interview-count.js" defer></script>
+  <script src="js/activity-store.js" defer></script>
+  <script src="js/jobs.js" defer></script>
+</body>
+</html>

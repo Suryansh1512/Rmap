@@ -1,0 +1,116 @@
+/* RMAP global background. All selectors and animation names are isolated. */
+body.rmap-bg-host {
+  position: relative;
+  isolation: isolate;
+  background: transparent !important;
+}
+
+body.rmap-bg-host::before,
+body.rmap-bg-host::after {
+  position: fixed;
+  z-index: -1;
+  inset: -12%;
+  display: block;
+  pointer-events: none;
+  content: "";
+}
+
+body.rmap-bg-host::before {
+  background:
+    radial-gradient(ellipse at 18% 28%, rgb(169 151 255 / 29%), transparent 38%),
+    radial-gradient(ellipse at 78% 20%, rgb(112 174 255 / 24%), transparent 38%),
+    radial-gradient(ellipse at 62% 76%, rgb(95 225 236 / 20%), transparent 38%),
+    radial-gradient(ellipse at 30% 80%, rgb(194 176 255 / 17%), transparent 42%);
+  background-size: 150% 150%;
+  filter: blur(35px);
+  opacity: .34;
+  animation: rmap-bg-aurora 42s ease-in-out infinite alternate;
+  will-change: background-position, transform;
+}
+
+body.rmap-bg-host::after {
+  inset: 0;
+  background-image:
+    linear-gradient(125deg, transparent 15%, rgb(139 159 255 / 4%) 48%, transparent 76%),
+    linear-gradient(35deg, transparent 22%, rgb(78 208 231 / 4%) 52%, transparent 80%),
+    radial-gradient(circle, rgb(109 133 216 / 30%) .8px, transparent 1.25px);
+  background-size: 100% 100%, 100% 100%, 34px 34px;
+  background-position: center, center, 0 0;
+  opacity: .22;
+  animation: rmap-bg-mesh 60s linear infinite;
+  mask-image: linear-gradient(135deg, #000 0%, rgb(0 0 0 / 65%) 48%, transparent 100%);
+  pointer-events: none;
+}
+
+body.rmap-bg-host > .rmap-bg-particle {
+  position: fixed;
+  z-index: -1;
+  top: var(--rmap-bg-y);
+  left: var(--rmap-bg-x);
+  width: var(--rmap-bg-size);
+  height: var(--rmap-bg-size);
+  border-radius: 50%;
+  background: rgb(108 163 255 / 58%);
+  box-shadow: 0 0 12px 2px rgb(124 171 255 / 24%);
+  opacity: .24;
+  pointer-events: none;
+  animation: rmap-bg-float var(--rmap-bg-duration) ease-in-out var(--rmap-bg-delay) infinite alternate;
+  will-change: transform, opacity;
+}
+
+body.rmap-bg-host.rmap-bg-landing::before { opacity: .36; }
+body.rmap-bg-host.rmap-bg-landing::after { opacity: .25; }
+body.rmap-bg-host.rmap-bg-landing > .rmap-bg-particle { opacity: .28; }
+body.rmap-bg-host.rmap-bg-login::before { opacity: .22; filter: blur(48px); }
+body.rmap-bg-host.rmap-bg-login::after { opacity: .12; }
+body.rmap-bg-host.rmap-bg-login > .rmap-bg-particle { opacity: .15; }
+body.rmap-bg-host.rmap-bg-dashboard::before { opacity: .11; filter: blur(58px); }
+body.rmap-bg-host.rmap-bg-dashboard::after { opacity: .08; }
+body.rmap-bg-host.rmap-bg-dashboard > .rmap-bg-particle { opacity: .08; }
+
+body.rmap-bg-host.rmap-bg-dark::before {
+  background:
+    radial-gradient(ellipse at 18% 28%, rgb(116 74 221 / 26%), transparent 38%),
+    radial-gradient(ellipse at 78% 20%, rgb(47 109 237 / 23%), transparent 38%),
+    radial-gradient(ellipse at 62% 76%, rgb(23 194 220 / 19%), transparent 38%),
+    radial-gradient(ellipse at 30% 80%, rgb(110 92 214 / 18%), transparent 42%);
+}
+body.rmap-bg-host.rmap-bg-dark::after {
+  background-image:
+    linear-gradient(125deg, transparent 15%, rgb(125 123 255 / 5%) 48%, transparent 76%),
+    linear-gradient(35deg, transparent 22%, rgb(41 204 232 / 5%) 52%, transparent 80%),
+    radial-gradient(circle, rgb(123 148 255 / 40%) .8px, transparent 1.25px);
+}
+body.rmap-bg-host.rmap-bg-dark > .rmap-bg-particle {
+  background: rgb(87 183 255 / 75%);
+  box-shadow: 0 0 14px 3px rgb(62 148 255 / 30%);
+}
+
+@keyframes rmap-bg-aurora {
+  0% { background-position: 0% 20%; transform: scale(1) rotate(0deg); }
+  50% { background-position: 100% 55%; }
+  100% { background-position: 15% 100%; transform: scale(1.08) rotate(3deg); }
+}
+@keyframes rmap-bg-mesh {
+  from { background-position: center, center, 0 0; }
+  to { background-position: center, center, 68px 68px; }
+}
+@keyframes rmap-bg-float {
+  from { transform: translate3d(-8px, 12px, 0) scale(.8); }
+  to { transform: translate3d(12px, -20px, 0) scale(1.15); opacity: .75; }
+}
+
+@media (max-width: 760px) {
+  body.rmap-bg-host::before { inset: -18%; filter: blur(42px); }
+  body.rmap-bg-host::after { background-size: 100% 100%, 100% 100%, 42px 42px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.rmap-bg-host::before,
+  body.rmap-bg-host::after,
+  body.rmap-bg-host > .rmap-bg-particle {
+    animation: none !important;
+    will-change: auto;
+  }
+}
+html.rmap-bg-root { background-color: #f7f9fd; }
+html.rmap-bg-root.rmap-bg-root-dark { background-color: #08111f; }

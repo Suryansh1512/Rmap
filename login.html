@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Page metadata controls browser display and search indexing. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fc">
+  <meta name="description" content="Sign in to RMAP, the Recruitment Management &amp; Analytics Platform, to manage hiring pipelines and recruiting insights.">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Sign in | RMAP Recruitment Analytics</title>
+  <script>try{const p=localStorage.getItem("rmapAppearance")||"system";document.documentElement.dataset.theme=p==="system"?(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"):p;}catch{document.documentElement.dataset.theme="light";}</script>
+  <!-- Visual styles for this page are maintained in a separate stylesheet. -->
+  <link rel="stylesheet" href="Assets/CSS/login.css">
+  <link rel="stylesheet" href="app/css/rmap-background.css">
+  <link rel="stylesheet" href="app/css/readability.css">
+  <link rel="stylesheet" href="app/css/global-effects.css">
+</head>
+<body class="rmap-bg-host rmap-bg-login">
+  <!-- Main card containing the brand introduction and sign-in form. -->
+  <main class="shell">
+    <!-- Desktop brand panel: logo, product summary, and hiring analytics preview. -->
+    <section class="visual" aria-label="RMAP platform overview">
+      <div class="brand"><img src="Assets/images/Futuristic%20RMAP%20Recruitment%20Analytics%20Logo-1.png" alt=""><div><div class="brand-name">RMAP</div><div class="brand-sub">Recruitment Management &amp; Analytics Platform</div></div></div>
+      <div class="hero"><div class="eyebrow">Recruit smarter</div><h1>See the people behind the numbers.</h1><p>Bring your hiring pipeline, team activity, and recruiting insights together in one clear workspace.</p>
+        <div class="insight"><div class="insight-top"><span>Hiring overview</span><span class="live"><i></i> Analytics ready</span></div><div class="stats"><div class="stat"><strong>Pipeline</strong><span>Track every candidate</span></div><div class="stat"><strong>Insights</strong><span>Make informed decisions</span></div></div></div>
+      </div><div class="dots" aria-hidden="true"><i></i><i></i><i></i></div>
+    </section>
+    <!-- Sign-in panel, including an alternate compact logo for mobile screens. -->
+    <section class="form-side" aria-labelledby="welcome-title">
+      <div class="form-wrap">
+        <div class="login-appearance" role="group" aria-label="Appearance">
+          <button type="button" data-login-theme="light">Light</button><button type="button" data-login-theme="dark">Dark</button><button type="button" data-login-theme="system">System</button>
+        </div>
+        <!-- Mobile-only brand mark; CSS hides this on larger screens. -->
+        <div class="mobile-brand"><img src="Assets/images/Futuristic%20RMAP%20Recruitment%20Analytics%20Logo-1.png" alt=""><span>RMAP<small>Recruitment Analytics Platform</small></span></div>
+        <!-- Greeting and short sign-in instruction. -->
+        <div class="welcome"><h2 id="welcome-title">Welcome back</h2><p>Sign in to continue to your workspace.</p></div>
+        <!-- Email and password fields, remember option, and primary submit button. -->
+        <form id="login-form">
+          <div class="field"><label for="email">Work email</label><div class="input-wrap"><input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="username" required></div></div>
+          <div class="field"><label for="password">Password</label><div class="input-wrap"><input id="password" name="password" type="password" placeholder="Enter your password" autocomplete="current-password" required><button class="toggle" type="button" id="toggle-password" aria-label="Show password">Show</button></div></div>
+          <div class="options"><label class="remember"><input type="checkbox" name="remember"> Remember me</label><a href="#" id="forgot-link">Forgot password?</a></div>
+          <button class="submit" type="submit">Sign in to RMAP <span aria-hidden="true">&rarr;</span></button>
+        </form>
+        <!-- Visual divider before the alternate Google sign-in option. -->
+        <div class="divider">OR CONTINUE WITH</div>
+        <!-- Google sign-in button; connect an OAuth provider to enable authentication. -->
+        <button class="google" type="button" id="google-button"><svg viewBox="0 0 48 48" aria-hidden="true"><path fill="#FFC107" d="M43.6 24.5c0-1.4-.1-2.8-.4-4.1H24v7.8h11a9.4 9.4 0 0 1-4.1 6.2v5.1h6.7c3.9-3.6 6-8.8 6-15Z"/><path fill="#34A853" d="M24 44c5.5 0 10.1-1.8 13.5-4.9l-6.7-5.1c-1.8 1.2-4 1.9-6.8 1.9-5.2 0-9.6-3.5-11.2-8.2H5.9v5.2A20 20 0 0 0 24 44Z"/><path fill="#4A90E2" d="M12.8 27.7a12 12 0 0 1 0-7.4v-5.2H5.9a20 20 0 0 0 0 17.8l6.9-5.2Z"/><path fill="#EA4335" d="M24 12.1c3 0 5.7 1 7.8 3.1l5.9-5.9C34.1 6.1 29.5 4 24 4A20 20 0 0 0 5.9 15.1l6.9 5.2c1.6-4.7 6-8.2 11.2-8.2Z"/></svg>Continue with Google</button>
+        <!-- Account creation entry point and product copyright. -->
+        <p class="signup">New to RMAP? <a href="#" id="signup-link">Create an account</a></p>
+        <div class="footnote">&copy; 2026 RMAP | Recruitment Management &amp; Analytics Platform</div>
+      </div>
+    </section>
+  </main>
+  <!-- Status message area used by the page's demo interactions. -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <!-- Lightweight UI behavior: password visibility and demo-only action messages. -->
+  <script>
+    const toast = document.getElementById('toast');
+    let appearancePreference = localStorage.getItem('rmapAppearance') || 'system';
+    const systemScheme = window.matchMedia('(prefers-color-scheme: dark)');
+    function applyLoginTheme(preference) {
+      appearancePreference = preference;
+      document.documentElement.dataset.theme = preference === 'system' ? (systemScheme.matches ? 'dark' : 'light') : preference;
+      document.querySelectorAll('[data-login-theme]').forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.loginTheme === preference)));
+    }
+    document.querySelectorAll('[data-login-theme]').forEach((button) => button.addEventListener('click', () => {
+      localStorage.setItem('rmapAppearance', button.dataset.loginTheme);
+      applyLoginTheme(button.dataset.loginTheme);
+      showMessage(`${button.dataset.loginTheme[0].toUpperCase()}${button.dataset.loginTheme.slice(1)} appearance selected.`);
+    }));
+    systemScheme.addEventListener?.('change', () => { if (appearancePreference === 'system') applyLoginTheme('system'); });
+    if (!systemScheme.addEventListener) systemScheme.addListener(() => { if (appearancePreference === 'system') applyLoginTheme('system'); });
+    applyLoginTheme(appearancePreference);
+    const visual = document.querySelector('.visual');
+    visual.addEventListener('pointermove', (event) => {
+      if (event.pointerType === 'touch' || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const rect = visual.getBoundingClientRect();
+      visual.style.setProperty('--pointer-x', `${((event.clientX - rect.left) / rect.width) * 100}%`);
+      visual.style.setProperty('--pointer-y', `${((event.clientY - rect.top) / rect.height) * 100}%`);
+      visual.style.setProperty('--float-x', `${((event.clientX - rect.left) / rect.width - .5) * 14}px`);
+      visual.style.setProperty('--float-y', `${((event.clientY - rect.top) / rect.height - .5) * 14}px`);
+    }, { passive: true });
+    let toastTimer;
+    function showMessage(message) {
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => toast.classList.remove('show'), 3200);
+    }
+    document.getElementById('toggle-password').addEventListener('click', (event) => {
+      const input = document.getElementById('password');
+      const visible = input.type === 'password';
+      input.type = visible ? 'text' : 'password';
+      event.currentTarget.textContent = visible ? 'Hide' : 'Show';
+      event.currentTarget.setAttribute('aria-label', visible ? 'Hide password' : 'Show password');
+    });
+    document.getElementById('login-form').addEventListener('submit', (event) => {
+      event.preventDefault();
+      // Save this demo user's details for the current browser tab.
+      const email = document.getElementById('email').value.trim();
+      const username = email.split('@')[0];
+      const displayName = username
+        .split(/[._+-]+/)
+        .filter(Boolean)
+        .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+        .join(' ') || 'Recruiter';
+      sessionStorage.setItem('rmapUser', JSON.stringify({ name: displayName, email }));
+      // Demo navigation; replace with a verified server authentication response later.
+      window.location.href = 'app/index.html';
+    });
+    document.getElementById('forgot-link').addEventListener('click', (event) => { event.preventDefault(); showMessage('Password reset is not connected yet.'); });
+    document.getElementById('signup-link').addEventListener('click', (event) => { event.preventDefault(); showMessage('Account creation is not connected yet.'); });
+    document.getElementById('google-button').addEventListener('click', () => showMessage('Google sign-in is not connected yet.'));
+  </script>
+  <script src="app/js/rmap-background.js" defer></script>
+</body>
+</html>
+
+

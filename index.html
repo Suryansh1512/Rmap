@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Signed-out entry page shown when the project opens. -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f5f7fc">
+  <meta name="description" content="Welcome to RMAP, the Recruitment Management &amp; Analytics Platform.">
+  <title>RMAP | Recruitment Management &amp; Analytics</title>
+  <link rel="stylesheet" href="app/css/landing.css">
+  <link rel="stylesheet" href="app/css/rmap-background.css">
+  <link rel="stylesheet" href="app/css/readability.css">
+  <link rel="stylesheet" href="app/css/global-effects.css">
+</head>
+<body class="rmap-bg-host rmap-bg-landing">
+  <!-- Public header keeps the brand and login entry point visible. -->
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="RMAP home">
+      <img src="Assets/images/Futuristic%20RMAP%20Recruitment%20Analytics%20Logo-1.png" alt="">
+      <span><strong>RMAP</strong><small>Recruitment Management &amp; Analytics Platform</small></span>
+    </a>
+    <a class="login-link" href="login.html">Log in <span aria-hidden="true">→</span></a>
+  </header>
+
+  <!-- Empty workspace state appears before the user signs in. -->
+  <main class="welcome-main">
+    <div class="welcome-copy">
+      <span class="eyebrow"><i></i> YOUR RECRUITMENT WORKSPACE</span>
+      <h1>Make every hire<br><span>count.</span></h1>
+      <p>Bring your hiring pipeline, candidate activity, and recruiting insights into one clear workspace.</p>
+      <a class="primary-button" href="login.html">Log in to your workspace <span aria-hidden="true">→</span></a>
+      <div class="privacy-note"><span aria-hidden="true">⌑</span> Your workspace data appears after you sign in.</div>
+    </div>
+
+    <!-- A quiet, data-free preview of the dashboard before sign-in. -->
+    <section class="workspace-preview" aria-label="Your workspace is waiting">
+      <div class="preview-top"><div class="preview-brand"><span class="preview-mark">R</span><span><strong>Workspace overview</strong><small>Recruitment dashboard</small></span></div><span class="preview-status"><i></i> Ready</span></div>
+      <div class="preview-skeletons" aria-hidden="true"><div class="skeleton-card"><span></span><i></i><b></b></div><div class="skeleton-card"><span></span><i></i><b></b></div><div class="skeleton-card"><span></span><i></i><b></b></div></div>
+      <!-- Decorative pipeline preview adds context without exposing workspace records before sign-in. -->
+      <div class="pipeline-preview" aria-label="Preview of recruitment stages">
+        <div class="pipeline-preview-heading"><span>Hiring pipeline</span><span><i></i> Workspace preview</span></div>
+        <div class="pipeline-preview-flow" aria-hidden="true">
+          <div class="pipeline-preview-step step-review"><span class="pipeline-step-icon">⌕</span><span class="pipeline-step-copy"><strong>Review</strong><small>New candidates</small></span><i class="pipeline-step-dot"></i></div>
+          <div class="pipeline-preview-step step-interview"><span class="pipeline-step-icon">◷</span><span class="pipeline-step-copy"><strong>Interview</strong><small>Team conversations</small></span><i class="pipeline-step-dot"></i></div>
+          <div class="pipeline-preview-step step-offer"><span class="pipeline-step-icon">✦</span><span class="pipeline-step-copy"><strong>Offer</strong><small>Final decisions</small></span><i class="pipeline-step-dot"></i></div>
+          <div class="pipeline-preview-step step-hired"><span class="pipeline-step-icon">✓</span><span class="pipeline-step-copy"><strong>Hired</strong><small>Growing your team</small></span><i class="pipeline-step-dot"></i></div>
+        </div>
+        <div class="pipeline-preview-footer"><span>Every role, candidate, and conversation in one view</span><span class="pipeline-preview-spark" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+      </div>
+      <div class="empty-state"><div class="empty-icon"><span>↗</span><i></i><b></b></div><h2>Your hiring overview starts here</h2><p>Log in to see open roles, candidates, interviews, and your team's latest activity.</p><a href="login.html">Continue to login <span aria-hidden="true">→</span></a></div>
+      <div class="preview-bottom"><span><i></i><i></i><i></i></span><small>Recruiting, in one place</small></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>© 2026 RMAP · Recruitment Management &amp; Analytics Platform</span><span>Recruit smarter, together.</span></footer>
+  <script src="app/js/rmap-background.js" defer></script>
+</body>
+</html>

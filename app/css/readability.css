@@ -1,0 +1,87 @@
+/* Readability pass: increase small interface copy without changing component geometry. */
+/* Landing page */
+.site-header .brand small { font-size: 10px; }
+.site-header .login-link { font-size: 13px; }
+.welcome-copy .eyebrow { font-size: 11px; }
+.welcome-copy > p { font-size: 15px; }
+.welcome-copy .primary-button { font-size: 12px; }
+.privacy-note { font-size: 11px; }
+.preview-brand strong { font-size: 11px; }
+.preview-brand small, .preview-status, .empty-state p, .empty-state a { font-size: 10px; }
+.preview-bottom small, .site-footer { font-size: 10px; }
+@media (max-width: 760px) { .site-header .brand small { font-size: 9px; } }
+@media (max-width: 420px) { .site-footer { font-size: 9px; } }
+
+/* Login page */
+.brand-sub { font-size: 11px; }
+.eyebrow { font-size: 12px; }
+.insight-top, .stat span { font-size: 12px; }
+.welcome p { font-size: 14px; }
+.field label { font-size: 13px; }
+.field input { font-size: 14px; }
+.toggle, .options, .remember, .login-appearance button { font-size: 12px; }
+.submit, .google { font-size: 14px; }
+.divider { font-size: 11px; }
+.signup { font-size: 12px; }
+.footnote { font-size: 11px; }
+.mobile-brand small { font-size: 10px; }
+
+/* Shared app shell and dashboard */
+.app-shell { font-size: 14px; }
+.brand-copy small, .workspace-copy small, .nav-label, .user-copy small,
+.notification-item small, .profile-menu-header small, .workspace-option-copy small,
+.workspace-menu-note, .appearance-label { font-size: 10px; }
+.workspace-copy strong, .user-copy strong, .profile-name, .notification-item strong,
+.profile-menu-header strong, .profile-menu > a, .global-search input,
+.breadcrumbs, .collapse-control { font-size: 12px; }
+.workspace-menu-heading, .workspace-option-copy strong, .text-button,
+.dropdown-footer { font-size: 11px; }
+.page-heading p, .date-label, .metric-top, .panel-heading p, .panel-link,
+.pipeline-summary > span:nth-child(2), .pipeline-change, .activity-item p,
+.table-footer, .page-footer, .appearance-option { font-size: 11px; }
+.panel-heading h2 { font-size: 14px; }
+.primary-button { font-size: 12px; }
+.metric-bottom, .metric-value small, .stage > span, .interview-info > span,
+.interview-info small, .interview-type, .view-all, .pipeline-change small,
+.table-person small, .status-pill, .activity-item p small { font-size: 10px; }
+.app-shell th { font-size: 10px; }
+.app-shell td { font-size: 11px; }
+.table-person strong { font-size: 11px; }
+
+/* Jobs, candidate directory, and applicant tables */
+.back-to-jobs, .jobs-export, .job-tab, .job-tab > span,
+.jobs-search input, .department-filter select, .jobs-table th,
+.job-title-cell strong, .job-meta, .job-status, .job-action-menu button,
+.candidate-export, .candidate-stat small, .candidate-stat-note,
+.demo-data-label, .candidate-search input, .candidate-filters select,
+.candidate-table th, .candidate-table td, .candidate-person-copy strong,
+.candidate-person-copy small, .candidate-job-tag, .candidate-no-jobs,
+.candidate-stage, .candidate-row-menu button, .candidate-table-footer,
+.candidate-data-note, .candidate-empty small, .candidate-demo-note,
+.candidate-modal-heading p, .candidate-field, .candidate-field small,
+.candidate-field input, .candidate-field select, .candidate-cancel,
+.profile-eyebrow, .candidate-profile-identity p, .profile-section h3,
+.profile-section dt, .profile-section dd, .profile-skill,
+.profile-section-heading > span, .profile-application strong,
+.profile-application small, .profile-application a, .profile-activity p,
+.profile-stage-select, .profile-stage-select select, .archive-candidate,
+.profile-notes textarea, .save-note, .attach-job-toggle,
+.attach-job-form select, .attach-job-form button,
+.applicant-job-copy p, .job-applicant-total span, .applicant-stat small,
+.applicant-tab, .applicant-tab > span, .applicant-search input,
+.applicant-table th, .applicant-table td, .candidate-cell strong,
+.candidate-cell small, .stage-badge, .match-score, .applicant-list-footer,
+.preview-badge, .applicant-empty small, .applicant-preview-note { font-size: 10px; }
+.candidate-person-copy strong, .candidate-cell strong, .job-title-cell strong { font-size: 11px; }
+.applicant-job-copy h2 { font-size: 15px; }
+.candidate-modal-heading h2, .candidate-profile-identity h2 { font-size: 19px; }
+.profile-application strong { font-size: 11px; }
+.jobs-table td { font-size: 11px; }
+/* Additional compact labels and action controls used on recruitment pages. */
+.jobs-stat > div small, .jobs-stat-caption, .job-title-cell small,
+.applicant-link, .applicant-link span, .jobs-table-footer,
+.job-modal-heading p, .job-form-field, .job-form-field input,
+.job-form-field select, .jobs-empty small, .jobs-pagination button,
+.candidate-heading-actions .primary-button { font-size: 10px; }
+.applicant-link, .job-title-cell strong, .job-modal-heading h2,
+.job-form-field input, .job-form-field select { font-size: 11px; }
